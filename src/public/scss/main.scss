@@ -1,3 +1,59 @@
-body {
-  background: yellowgreen;
+$bg-primary-default: #5d67ed;
+$bg-primary-secondary: #46d7ea;
+$color-default: white;
+$red-default: #f45562;
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lobster", cursive;
+}
+
+#header {
+  .navbar {
+    background: $bg-primary-default;
+    .navbar-brand {
+      color: $color-default;
+    }
+    .navbar-toggler {
+      ion-icon {
+        color: $color-default;
+      }
+    }
+  }
+
+  #navbar {
+    .nav-item {
+      .nav-link {
+        color: $color-default;
+      }
+    }
+  }
+}
+
+#subheader {
+  background: linear-gradient(
+    to bottom right,
+    $bg-primary-default,
+    $bg-primary-secondary
+  );
+  color: $color-default;
+  text-align: center;
+  padding: 12em 0;
+  h1 {
+    font-size: 4em;
+    opacity: 0.9;
+  }
+  p {
+    opacity: 0.9;
+  }
+}
+
+.c-white {
+  color: $color-default;
 }

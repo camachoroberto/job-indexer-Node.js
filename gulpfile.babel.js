@@ -43,7 +43,7 @@ const onError = (err) => {
 function templates() {
   const plgs = [autoprefixer({ browsers: ['last 2 versions'] }), cssnano()];
 
-  return src(path.join(PATHS.src_scss, '*.scss'))
+  return src(path.resolve(PATHS.src_scss, '*.scss'))
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plgs))
     .pipe(rename({ suffix: '.min' }))
@@ -159,4 +159,4 @@ function runbrowerSync() {
   watch(path.join(PATHS.src_node, './**/*.hbs'), mvTmpl);
 }
 
-task('default', series(templates, logBabel, mvTmpl, logBabelServer, logNodemon, runbrowerSync));
+task('default', series(templates, mvTmpl, logBabelServer, logNodemon, runbrowerSync));
