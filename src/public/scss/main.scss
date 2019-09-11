@@ -3,15 +3,18 @@ $bg-primary-secondary: #158094;
 $color-default: white;
 $red-default: #bf1736;
 
+h1 {
+  font-family: "Lobster Two", cursive;
+}
+
 html,
 body,
-h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Lobster", cursive;
+  font-family: "Crimson Pro", serif;
 }
 
 #header {
@@ -44,7 +47,7 @@ h6 {
   );
   color: $color-default;
   text-align: center;
-  padding: 12em 0;
+  padding: 18em 0;
   h1 {
     font-size: 4em;
     opacity: 0.9;
@@ -55,7 +58,7 @@ h6 {
 }
 
 #content {
-  margin: 6em 0;
+  margin: 4em 0;
 
   .features-box {
     text-align: center;
@@ -100,7 +103,7 @@ h6 {
 }
 
 #contact {
-  padding: 3.2em 0 5em 0;
+  padding: 2em 0 1em;
 }
 
 #footer {

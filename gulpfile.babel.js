@@ -159,4 +159,4 @@ function runbrowerSync() {
   watch(path.join(PATHS.src_node, './**/*.hbs'), mvTmpl);
 }
 
-task('default', series(templates, mvTmpl, logBabelServer, logNodemon, runbrowerSync));
+task('default', parallel(templates, logBabel, mvTmpl, logBabelServer, logNodemon, runbrowerSync));
