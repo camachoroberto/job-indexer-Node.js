@@ -1,7 +1,7 @@
 import express from "express";
-import landing from "./../../services/landing/";
-import login from "../../services/user/login";
-import register from "../../services/user/register"
+import landing from "./../../services/landing";
+import login from "./../../services/users/login";
+import register from "./../../services/users/register";
 
 const router = express.Router();
 

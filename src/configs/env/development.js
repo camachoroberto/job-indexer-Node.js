@@ -1,10 +1,15 @@
-const path = require("path");
-const express = require("express");
-const bodyParser = require("body-parser");
-const morgan = require("morgan");
-const hbs = require("express-hbs");
-const methodOverride = require("method-override");
-const session = require("express-session");
+import path from "path";
+import express from "express";
+import bodyParser from "body-parser";
+import morgan from "morgan";
+import hbs from "express-hbs";
+import methodOverride from "method-override";
+import session from "express-session";
+import mongoose from "mongoose";
+import "mongoose-type-email";
+import User from "./../../models/user";
+import passport from "passport";
+import { Strategy } from "passport-local";
 
 module.exports = app => {
   app.set("port", 9000);
@@ -23,6 +28,12 @@ module.exports = app => {
       saveUninitialized: false
     })
   );
+  app.use(passport.initialize());
+  app.use(passport.session());
+
+  passport.use(new Strategy(User.authenticate()));
+  passport.serializeUser(User.serializeUser());
+  passport.deserializeUser(User.deserializeUser());
 
   app.engine(
     "hbs",
@@ -32,4 +43,9 @@ module.exports = app => {
       layoutsDir: path.join(app.get("views"), "layouts")
     })
   );
+
+  mongoose.Promise = global.Promise;
+  mongoose.connect("mongodb://localhost:27017/indexador", {
+    useMongoClient: true
+  });
 };
